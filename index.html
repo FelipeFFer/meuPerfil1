@@ -1,41 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> <!-- Declaração do tipo de documento, informando que é um HTML5 -->
+<html lang="pt-br"> <!-- Abertura do documento HTML, indicando que o idioma da página é português do Brasil -->
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8, que suporta caracteres especiais como acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a responsividade da página, ajustando ao tamanho da tela do dispositivo -->
+    <title>Meu Perfil</title> <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Importa o Bootstrap para estilizar a página -->
     <style>
-      #profileImage {
-        cursor: pointer;
+      #profileImage { 
+        cursor: pointer; /* Aplica um estilo para que o cursor se torne uma mãozinha quando passar sobre a imagem */
       }
     </style>
   </head>
-  <body class="bg-light">
-    <div class="container mt-5">
-      <h1 class="text-center mb-4">Meu Perfil</h1>
-
+  <body class="bg-light"> <!-- Corpo da página com fundo claro (bg-light é uma classe do Bootstrap) -->
+    <div class="container mt-5"> <!-- Cria um contêiner centralizado com margem superior de 5 -->
+      <h1 class="text-center mb-4">Meu Perfil</h1> <!-- Cabeçalho centralizado com margem inferior de 4 -->
+      
       <!-- Card de perfil -->
-      <div class="card" id="profileCard">
-        <div class="card-body text-center">
+      <div class="card" id="profileCard"> <!-- Criação de um card com ID para manipulação -->
+        <div class="card-body text-center"> <!-- Corpo do card centralizado -->
           <!-- Imagem de perfil -->
-          <img src="imagem/imagem1.jpg" alt="Imagem de Perfil" id="profileImage" class="rounded-circle mb-3" style="width: 150px;">
-          <h3 id="profileName">Nome: Picolino</h3>
-          <p id="profileAge">Idade: 80</p>
+          <img src="imagem/imagem1.jpg" alt="Imagem de Perfil" id="profileImage" class="rounded-circle mb-3" style="width: 150px;"> 
+          <!-- Imagem do perfil, com borda arredondada e margem inferior de 3. O ID 'profileImage' é usado para manipulá-la no JavaScript -->
+          <h3 id="profileName">Nome: Picolino</h3> <!-- Exibe o nome do perfil com ID 'profileName' -->
+          <p id="profileAge">Idade: 80</p> <!-- Exibe a idade do perfil com ID 'profileAge' -->
 
           <!-- Lista de hobbies -->
-          <h5>Hobbies:</h5>
-          <ul id="hobbiesList" class="list-group mb-3">
-            <li class="list-group-item" onclick="removerHobby(this)">Leitura</li>
-            <li class="list-group-item" onclick="removerHobby(this)">Pescar</li>
-            <li class="list-group-item" onclick="removerHobby(this)">Música</li>
+          <h5>Hobbies:</h5> <!-- Título para a lista de hobbies -->
+          <ul id="hobbiesList" class="list-group mb-3"> <!-- Lista de hobbies com classe para estilização e margem inferior de 3 -->
+            <li class="list-group-item" onclick="removerHobby(this)">Leitura</li> <!-- Item de hobby 'Leitura', que ao ser clicado chama a função 'removerHobby' -->
+            <li class="list-group-item" onclick="removerHobby(this)">Pescar</li> <!-- Item de hobby 'Pescar' -->
+            <li class="list-group-item" onclick="removerHobby(this)">Música</li> <!-- Item de hobby 'Música' -->
           </ul>
 
           <!-- Botões de interação -->
-          <button class="btn btn-primary me-2" onclick="alterarNome()">Alterar Nome</button>
-          <button class="btn btn-success me-2" onclick="adicionarHobby()">Adicionar Hobby</button>
-          <button class="btn btn-warning me-2" onclick="mudarCorDeFundo()">Mudar Cor de Fundo</button>
-          <button class="btn btn-danger" onclick="resetarPagina()">Resetar</button>
+          <button class="btn btn-primary me-2" onclick="alterarNome()">Alterar Nome</button> <!-- Botão para alterar o nome, chama a função 'alterarNome' -->
+          <button class="btn btn-success me-2" onclick="adicionarHobby()">Adicionar Hobby</button> <!-- Botão para adicionar um hobby, chama a função 'adicionarHobby' -->
+          <button class="btn btn-warning me-2" onclick="mudarCorDeFundo()">Mudar Cor de Fundo</button> <!-- Botão para mudar a cor de fundo, chama a função 'mudarCorDeFundo' -->
+          <button class="btn btn-danger" onclick="resetarPagina()">Resetar</button> <!-- Botão para resetar a página, chama a função 'resetarPagina' -->
         </div>
       </div>
     </div>
@@ -43,64 +44,64 @@
     <script>
       // Função para alterar o nome
       function alterarNome() {
-        const novoNome = prompt("Digite seu novo nome: ");
-        if (novoNome) {
-          document.getElementById("profileName").textContent = "Nome: " + novoNome;
+        const novoNome = prompt("Digite seu novo nome: "); // Exibe um prompt pedindo ao usuário um novo nome
+        if (novoNome) { // Se o usuário digitou algo
+          document.getElementById("profileName").textContent = "Nome: " + novoNome; // Atualiza o nome no perfil
         }
       }
 
       // Função para adicionar um hobby
       function adicionarHobby() {
-        const novoHobby = prompt("Digite um novo Hobby: ");
-        if (novoHobby) {
-          const li = document.createElement("li");
-          li.textContent = novoHobby;
-          li.className = "list-group-item";
-          li.setAttribute("onclick", "removerHobby(this)"); // Para remover ao clicar
-          document.getElementById("hobbiesList").appendChild(li);
+        const novoHobby = prompt("Digite um novo Hobby: "); // Exibe um prompt pedindo ao usuário um novo hobby
+        if (novoHobby) { // Se o usuário digitou algo
+          const li = document.createElement("li"); // Cria um novo elemento de lista
+          li.textContent = novoHobby; // Define o texto do novo item da lista com o hobby inserido pelo usuário
+          li.className = "list-group-item"; // Adiciona a classe de estilo do Bootstrap para o item da lista
+          li.setAttribute("onclick", "removerHobby(this)"); // Define a função para remover o hobby quando clicado
+          document.getElementById("hobbiesList").appendChild(li); // Adiciona o novo item na lista de hobbies
         }
       }
 
       // Função para remover um hobby
       function removerHobby(hobby) {
-        hobby.remove(); // Remove o item clicado
+        hobby.remove(); // Remove o item de hobby clicado da lista
       }
 
       // Função para mudar a cor de fundo do perfil
       function mudarCorDeFundo() {
-        const cores = ["#f8d7da", "#d1ecf1", "#d4edda", "#fff3cd", "#cce5ff"];
-        const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
-        document.getElementById("profileCard").style.backgroundColor = corAleatoria;
+        const cores = ["#f8d7da", "#d1ecf1", "#d4edda", "#fff3cd", "#cce5ff"]; // Define um array com diferentes cores
+        const corAleatoria = cores[Math.floor(Math.random() * cores.length)]; // Seleciona uma cor aleatória
+        document.getElementById("profileCard").style.backgroundColor = corAleatoria; // Aplica a cor aleatória no fundo do card
       }
 
       // Função para alterar a imagem de perfil ao passar o mouse
       document.getElementById("profileImage").addEventListener("mouseenter", function() {
-        this.src = "imagem/imagem2.jpg"; // Novo estilo ao passar o mouse
+        this.src = "imagem/imagem2.jpg"; // Altera a imagem quando o mouse passa sobre a imagem
       });
 
       // Função para restaurar a imagem original
       document.getElementById("profileImage").addEventListener("mouseleave", function() {
-        this.src = "imagem/imagem1.jpg"; // Volta à imagem original
+        this.src = "imagem/imagem1.jpg"; // Restaura a imagem original quando o mouse sai de cima da imagem
       });
 
       // Função para resetar a página ao estado inicial
       function resetarPagina() {
         // Resetando o nome, idade, hobbies e imagem
-        document.getElementById("profileName").textContent = "Nome: Picolino";
-        document.getElementById("profileAge").textContent = "Idade: 80";
+        document.getElementById("profileName").textContent = "Nome: Picolino"; // Reseta o nome
+        document.getElementById("profileAge").textContent = "Idade: 80"; // Reseta a idade
         
         const hobbiesList = document.getElementById("hobbiesList");
-        hobbiesList.innerHTML = `
+        hobbiesList.innerHTML = ` <!-- Reseta a lista de hobbies com seus itens iniciais -->
           <li class="list-group-item" onclick="removerHobby(this)">Leitura</li>
           <li class="list-group-item" onclick="removerHobby(this)">Pescar</li>
           <li class="list-group-item" onclick="removerHobby(this)">Música</li>
         `;
 
-        document.getElementById("profileCard").style.backgroundColor = ""; // Resetando a cor de fundo
-        document.getElementById("profileImage").src = "imagem/imagem1.jpg"; // Resetando a imagem
+        document.getElementById("profileCard").style.backgroundColor = ""; // Reseta a cor de fundo do card
+        document.getElementById("profileImage").src = "imagem/imagem1.jpg"; // Reseta a imagem para a original
       }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Importa o arquivo JavaScript do Bootstrap -->
   </body>
 </html>
